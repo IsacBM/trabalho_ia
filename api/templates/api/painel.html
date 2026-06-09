@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Zoiudo - Prontuário Digital</title>
+    <link rel="stylesheet" href="{% static 'api/css/style.css' %}">
+</head>
+<body class="app-body">
+
+    {% csrf_token %}
+
+    <header class="topbar">
+        <div class="topbar-left">
+            <div class="brand">
+                <h1>Sistema de Apoio à Decisão Clínica</h1>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <span class="user-role">Dr(a). Oftalmologista</span>
+            <img src="https://ui-avatars.com/api/?name=Medico+Oftalmo&background=44eba5eb&color=fff" alt="Perfil" class="user-avatar">
+        </div>
+    </header>
+
+    <main class="main-workspace">
+        
+        <aside class="sidebar">
+            <div class="sidebar-content custom-scrollbar">
+
+                <form id="medicalForm" class="medical-form">
+                    <div class="patient-card">
+                        <div class="card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path></svg>
+                            Registro de Identificação
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Paciente</label>
+                            <input type="text" value="Isac B. Matos" readonly class="input-fichario">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group col-2">
+                                <label>Prontuário</label>
+                                <input type="text" value="IFPI-2026-089" readonly class="input-fichario font-mono">
+                            </div>
+                            <div class="form-group col-1">
+                                <label>Idade</label>
+                                <input type="text" value="20" readonly class="input-fichario text-center">
+                            </div>
+                            <div class="form-group col-1">
+                                <label>Sexo</label>
+                                <input type="text" value="M" readonly class="input-fichario text-center">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Localidade / Origem</label>
+                            <input type="text" value="Dirceu Arcoverde - PI" readonly class="input-fichario">
+                        </div>
+                    </div>
+
+                    <div class="clinical-data">
+                        <div class="form-group">
+                            <label>Queixa Principal (Triage)</label>
+                            <textarea readonly class="textarea-readonly">"Visão embaçada como se olhasse por um vidro sujo."</textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-1">
+                                <label>Olho Avaliado</label>
+                                <select class="select-active">
+                                    <option value="OD">Direito (OD)</option>
+                                    <option value="OE">Esquerdo (OE)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-1">
+                                <label>Equipamento</label>
+                                <div class="equipment-badge">Lâmpada Zoiudo v3</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="upload-section">
+                        <label class="section-label">Captura de Fundo de Olho</label>
+                        <label for="imagem" class="upload-box">
+                            <div id="uploadPlaceholder" class="upload-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span>Anexar Exame (JPG/PNG)</span>
+                            </div>
+                            <img id="miniPreview" class="hidden mini-preview" alt="Miniatura">
+                            <div id="miniPreviewOverlay" class="hidden preview-overlay">
+                                <span class="overlay-badge">Imagem Pronta</span>
+                            </div>
+                            <input id="imagem" name="imagem" type="file" accept="image/*" class="hidden" required />
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+            <div class="sidebar-footer">
+                <button type="submit" form="medicalForm" id="btnAnalisar" class="btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    Análisar Imagem
+                </button>
+            </div>
+        </aside>
+
+        <section class="viewer-section">
+            <div class="viewer-container">
+                
+                <div id="rightAguardando" class="viewer-empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path></svg>
+                    <p>Aguardando seleção do exame (Fundo de Olho) no painel lateral.</p>
+                </div>
+
+                <div id="largeImageContainer" class="hidden viewer-image-area">
+                    <div class="pacs-overlay top-left">
+                        <span class="font-bold">Matos, B. I.</span><br>
+                        IFPI-2026-089
+                    </div>
+                    <div class="pacs-overlay top-right">
+                        OD (Olho Direito)<br>
+                        Zoiudo v3
+                    </div>
+
+                    <img id="largeImage" alt="Visor Médico">
+                    
+                    <div id="scannerEffect" class="hidden clinical-loader-overlay">
+                        <div class="clinical-spinner"></div>
+                        <span class="clinical-loader-text">Analisando níveis de opacidade do cristalino...</span>
+                    </div>
+                </div>
+
+                <div id="painelLaudo" class="hidden results-panel">
+                    <div class="results-layout">
+                        <div class="ai-suggestion">
+                            <div id="iconeDiagnostico" class="diagnosis-icon"></div>
+                            <div class="diagnosis-text">
+                                <h3 id="textoDiagnostico">Processando...</h3>
+                                <p class="confidence">
+                                    Índice de Probabilidade: 
+                                    <span id="textoConfianca">--</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="medical-validation">
+                            <p class="label">Parecer Médico Definitivo</p>
+                            <div class="validation-buttons">
+                                <button type="button" class="btn-success">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"></path></svg>
+                                    Validar Achado
+                                </button>
+                                <button type="button" class="btn-danger">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                                    Divergir Diagnóstico
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="centralizar">
+            <a href="https://github.com/" target="_blank" class="github-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                <span>Código Aberto no GitHub</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="{% static 'api/js/main.js' %}"></script>
+</body>
+</html>
