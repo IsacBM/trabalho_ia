@@ -1,5 +1,7 @@
 # 3. Base de Dados
 
+![Ciclo de Desenvolvimento de Deep Learning](../imagens/priscila.png)
+
 ## Origem dos dados
 O conjunto de dados utilizado neste projeto é o **Ocular Disease Intelligent Recognition (ODIR-5K)**, disponibilizado publicamente no [Kaggle](https://www.kaggle.com/datasets/andrewmvd/ocular-disease-recognition-odir5k). Trata-se de um banco de dados oftalmológico estruturado, contendo fotografias de fundo de olho (*fundus photography*) coletadas de 5.000 pacientes em hospitais da China.
 
