@@ -70,7 +70,7 @@ A estrutura de diretórios abaixo reflete a arquitetura modular adotada no siste
 │   └── 🐍 views.py
 ├── 📁 models
 │   └── 📄 medical_trial_model.h5
-├── 📁 server_zoiudo
+├── 📁 server
 │   ├── 🐍 __init__.py
 │   ├── 🐍 asgi.py
 │   ├── 🐍 settings.py
@@ -90,7 +90,7 @@ A estrutura de diretórios abaixo reflete a arquitetura modular adotada no siste
 * **`api/`**: Contém o coração da aplicação, incluindo as *views* que interagem com o Keras para processar as imagens e os *templates* HTML limpos.
 * **`static/`**: Armazena os arquivos estáticos isolados, garantindo a separação de responsabilidades e um front-end leve, sem dependência de frameworks externos.
 * **`models/`**: Diretório dedicado a armazenar os pesos treinados do modelo de rede neural, mantendo o *core* de IA independente da lógica web.
-* **`server_zoiudo/`**: Configurações globais do Django, definições de rotas (`urls.py`), mapeamento de arquivos estáticos e regras de segurança.
+* **`server/`**: Configurações globais do Django, definições de rotas (`urls.py`), mapeamento de arquivos estáticos e regras de segurança.
 
 ## | Instruções de Instalação:
 
