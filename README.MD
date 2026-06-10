@@ -3,6 +3,28 @@ O SADC é uma API desenvolvida em Django que integra um modelo de Deep Learning 
 
 O sistema conta com um front-end nativo em formato de Prontuário Eletrônico, permitindo uma interface de validação médica intuitiva, e um back-end robusto focado em pré-processamento avançado de imagens médicas.
 
+## | Interface do Sistema
+
+### 1. Registro e Captura do Exame
+
+O médico visualiza as informações do paciente e realiza a seleção da imagem de fundo de olho para análise.
+
+![Registro e Captura](imagens/inicio.png)
+
+### 2. Visualização do Exame
+
+Após a captura, a imagem é carregada para inspeção visual antes do processamento pelo modelo de Deep Learning.
+
+![Visualização do Exame](imagens/selecao.png)
+
+### 3. Resultado da Análise
+
+O sistema apresenta o diagnóstico sugerido juntamente com o índice de probabilidade calculado pelo modelo, permitindo a validação ou divergência pelo especialista.
+
+![Resultado da Análise](imagens/analise.png)
+
+Link de Acesso: 
+
 ## | Tecnologias Utilizadas:
 
 ### Back-end & API;
@@ -48,7 +70,7 @@ A estrutura de diretórios abaixo reflete a arquitetura modular adotada no siste
 │   └── 🐍 views.py
 ├── 📁 models
 │   └── 📄 medical_trial_model.h5
-├── 📁 server_zoiudo
+├── 📁 server
 │   ├── 🐍 __init__.py
 │   ├── 🐍 asgi.py
 │   ├── 🐍 settings.py
@@ -68,7 +90,7 @@ A estrutura de diretórios abaixo reflete a arquitetura modular adotada no siste
 * **`api/`**: Contém o coração da aplicação, incluindo as *views* que interagem com o Keras para processar as imagens e os *templates* HTML limpos.
 * **`static/`**: Armazena os arquivos estáticos isolados, garantindo a separação de responsabilidades e um front-end leve, sem dependência de frameworks externos.
 * **`models/`**: Diretório dedicado a armazenar os pesos treinados do modelo de rede neural, mantendo o *core* de IA independente da lógica web.
-* **`server_zoiudo/`**: Configurações globais do Django, definições de rotas (`urls.py`), mapeamento de arquivos estáticos e regras de segurança.
+* **`server/`**: Configurações globais do Django, definições de rotas (`urls.py`), mapeamento de arquivos estáticos e regras de segurança.
 
 ## | Instruções de Instalação:
 
@@ -77,8 +99,8 @@ Siga o passo a passo abaixo para configurar o ambiente localmente.
 1. Clone o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-cd SEU-REPOSITORIO
+git https://github.com/IsacBM/trabalho_ia.git
+cd trabalho_ia
 ```
 
 2. Crie e ative um Ambiente Virtual:
@@ -104,8 +126,6 @@ pip install -r requirements.txt
 4. Adicione o Modelo de IA:
 
 Certifique-se de que o arquivo de pesos do seu modelo pré-treinado esteja localizado na pasta raiz do projeto, ao lado do arquivo manage.py.
-
-![alt text]({9E5B8B97-C4D5-4A85-8B05-E5D8C8C7EDAA}.png)
 
 ## | Instruções de Execução:
 
