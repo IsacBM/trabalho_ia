@@ -105,6 +105,8 @@ pip install -r requirements.txt
 
 Certifique-se de que o arquivo de pesos do seu modelo pré-treinado esteja localizado na pasta raiz do projeto, ao lado do arquivo manage.py.
 
+![alt text]({9E5B8B97-C4D5-4A85-8B05-E5D8C8C7EDAA}.png)
+
 ## | Instruções de Execução:
 
 1. Aplique as migrações do banco de dados
