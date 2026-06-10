@@ -1,4 +1,15 @@
-# Sistema de Apoio à Decisão Clínica
+# Trabalho de Tópicos Especiais em Computação
+
+## |📖 Documentação Completa
+
+- [1. Definição do Problema](docs/01-definicao-do-problema.md)
+- [2. Objetivo da Solução](docs/02-objetivo-da-solucao.md)
+- [3. Base de Dados](docs/03-base-de-dados.md)
+- [4. Modelagem em Deep Learning](docs/04-modelagem-deep-learning.md)
+- [5. Avaliação dos Resultados](docs/05-avaliacao-dos-resultados.md)
+- [6. Aplicabilidade Real](docs/06-aplicabilidade-real.md)
+
+## Sistema de Apoio à Decisão Clínica
 O SADC é uma API desenvolvida em Django que integra um modelo de Deep Learning para auxiliar médicos oftalmologistas no diagnóstico preliminar de catarata através da análise de imagens de fundo de olho.
 
 O sistema conta com um front-end nativo em formato de Prontuário Eletrônico, permitindo uma interface de validação médica intuitiva, e um back-end robusto focado em pré-processamento avançado de imagens médicas.
@@ -46,22 +57,13 @@ Link de Acesso:
 * **Análise em Tempo Real:** Retorno assíncrono do diagnóstico sugerido e do índice de probabilidade do modelo.
 * **Validação Médica:** Botões de ação para o especialista aprovar ou divergir do laudo algorítmico.
 
-## |📖 Documentação Completa
-
-- [1. Definição do Problema](docs/01-definicao-do-problema.md)
-- [2. Objetivo da Solução](docs/02-objetivo-da-solucao.md)
-- [3. Base de Dados](docs/03-base-de-dados.md)
-- [4. Modelagem em Deep Learning](docs/04-modelagem-deep-learning.md)
-- [5. Avaliação dos Resultados](docs/05-avaliacao-dos-resultados.md)
-- [6. Aplicabilidade Real](docs/06-aplicabilidade-real.md)
-
 ## | Estrutura do Projeto:
 
 A estrutura de diretórios abaixo reflete a arquitetura modular adotada no sistema, separando claramente as lógicas de roteamento web, a interface de usuário (Prontuário Eletrônico) e o isolamento dos modelos de Inteligência Artificial.
+
 ```
+├── 📁 ODIR-5K - Copia
 ├── 📁 api
-│   ├── 📁 migrations
-│   │   └── 🐍 __init__.py
 │   ├── 📁 static
 │   │   └── 📁 api
 │   │       ├── 📁 css
@@ -77,18 +79,32 @@ A estrutura de diretórios abaixo reflete a arquitetura modular adotada no siste
 │   ├── 🐍 models.py
 │   ├── 🐍 tests.py
 │   └── 🐍 views.py
-├── 📁 models
-│   └── 📄 medical_trial_model.h5
+├── 📁 docs
+│   ├── 📝 01-definicao-do-problema.md
+│   ├── 📝 02-objetivo-da-solucao.md
+│   ├── 📝 03-base-de-dados.md
+│   ├── 📝 04-modelagem-deep-learning.md
+│   ├── 📝 05-avaliacao-dos-resultados.md
+│   └── 📝 06-aplicabilidade-real.md
+├── 📁 imagens
+│   ├── 🖼️ analise.png
+│   ├── 🖼️ image.png
+│   ├── 🖼️ inicio.png
+│   └── 🖼️ selecao.png
+├── 📁 modelo
 ├── 📁 server
 │   ├── 🐍 __init__.py
 │   ├── 🐍 asgi.py
 │   ├── 🐍 settings.py
 │   ├── 🐍 urls.py
 │   └── 🐍 wsgi.py
-├── 📝 SERVER_API.MD
+├── ⚙️ .gitignore
+├── 📝 README.MD
 ├── 📄 db.sqlite3
 ├── 🐍 manage.py
 ├── 📄 modelo_catarata_mobilenetv2_final.keras
+├── 📄 requirements.txt
+├── 📄 runtime.txt
 └── 🐍 testar_api.py
 ```
 

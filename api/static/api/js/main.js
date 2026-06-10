@@ -13,16 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('medicalForm');
     
     const painelLaudo = document.getElementById('painelLaudo');
-<<<<<<< HEAD
-    const iconeDiagnostico = document.getElementById('iconeDiagnostico');
-    const textoDiagnostico = document.getElementById('textoDiagnostico');
-    const textoConfianca = document.getElementById('textoConfianca');
-=======
     const textoDiagnostico = document.getElementById('textoDiagnostico');
     const textoConfianca = document.getElementById('textoConfianca');
     const csrfElement = document.querySelector('[name=csrfmiddlewaretoken]');
     const csrfToken = csrfElement ? csrfElement.value : '';
->>>>>>> 8cff3ea413ce4a304f2d664eaeaec361566c2ef6
 
     if (inputImagem) {
         inputImagem.addEventListener('change', function() {
@@ -63,11 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             painelLaudo.classList.add('hidden');
             painelLaudo.classList.remove('animate-fade-in');
 
-<<<<<<< HEAD
-            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-
-=======
->>>>>>> 8cff3ea413ce4a304f2d664eaeaec361566c2ef6
             const formData = new FormData();
             formData.append('imagem', file);
 
@@ -81,13 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     new Promise(resolve => setTimeout(resolve, 2000))
                 ]);
 
-<<<<<<< HEAD
-=======
                 if (!resposta.ok) {
                     throw new Error("Falha na resposta do servidor");
                 }
 
->>>>>>> 8cff3ea413ce4a304f2d664eaeaec361566c2ef6
                 const dados = await resposta.json();
 
                 scannerEffect.classList.add('hidden');
@@ -97,19 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (dados.diagnostico === 'Catarata') {
                     textoDiagnostico.className = "text-3xl font-black text-red-600";
-<<<<<<< HEAD
-                    iconeDiagnostico.className = "w-16 h-16 rounded-full flex items-center justify-center shrink-0 bg-red-100 border-4 border-red-200 text-red-600";
-                    iconeDiagnostico.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
-                } else {
-                    textoDiagnostico.className = "text-3xl font-black text-emerald-600";
-                    iconeDiagnostico.className = "w-16 h-16 rounded-full flex items-center justify-center shrink-0 bg-emerald-100 border-4 border-emerald-200 text-emerald-600";
-                    iconeDiagnostico.innerHTML = '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
-=======
                 } 
                 
                 else {
                     textoDiagnostico.className = "text-3xl font-black text-emerald-600";
->>>>>>> 8cff3ea413ce4a304f2d664eaeaec361566c2ef6
                 }
 
                 painelLaudo.classList.remove('hidden');
