@@ -46,7 +46,7 @@ Link de Acesso:
 * **Análise em Tempo Real:** Retorno assíncrono do diagnóstico sugerido e do índice de probabilidade do modelo.
 * **Validação Médica:** Botões de ação para o especialista aprovar ou divergir do laudo algorítmico.
 
-## 📖 Documentação Completa
+## |📖 Documentação Completa
 
 - [1. Definição do Problema](docs/01-definicao-do-problema.md)
 - [2. Objetivo da Solução](docs/02-objetivo-da-solucao.md)
@@ -100,6 +100,7 @@ A estrutura de diretórios abaixo reflete a arquitetura modular adotada no siste
 * **`static/`**: Armazena os arquivos estáticos isolados, garantindo a separação de responsabilidades e um front-end leve, sem dependência de frameworks externos.
 * **`models/`**: Diretório dedicado a armazenar os pesos treinados do modelo de rede neural, mantendo o *core* de IA independente da lógica web.
 * **`server/`**: Configurações globais do Django, definições de rotas (`urls.py`), mapeamento de arquivos estáticos e regras de segurança.
+* **`docs/`**: Diretório dedicado à documentação completa e organizada do projeto. Contém os arquivos Markdown com a descrição detalhada de cada etapa do desenvolvimento.
 
 ## | Instruções de Instalação:
 
