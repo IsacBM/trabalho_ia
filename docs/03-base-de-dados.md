@@ -38,12 +38,8 @@ Os dados foram divididos em conjuntos de treino e validação/teste, sendo **80%
 
 ## Tratamento de ruído ou inconsistências
 - Utilização apenas das *labels* oficiais fornecidas pelos especialistas;
-- Remoção ou filtragem de imagens de qualidade muito baixa quando identificadas;
 - Tratamento do aspecto multi-label do dataset original (o modelo final foi configurado como classificação binária com saída `sigmoid` + `binary_crossentropy`).
 
 ## Limitações da base
 - Forte desbalanceamento entre as classes;
 - Viés geográfico (dados coletados predominantemente na China);
-- Heterogeneidade na classe “Others”;
-- Variação na qualidade das imagens conforme o equipamento de captura;
-- Ausência de metadados clínicos completos (idade disponível, mas outros dados limitados).
