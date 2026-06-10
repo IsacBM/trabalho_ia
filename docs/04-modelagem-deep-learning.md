@@ -48,10 +48,3 @@ Foram aplicadas as seguintes técnicas:
 
 ## Processo de treinamento
 O modelo foi compilado com o otimizador Adam e função de perda Binary Crossentropy. O treinamento foi realizado utilizando o framework **Keras** (versão 3.13.2). As camadas do backbone MobileNetV2 tiveram treinamento diferencial: as primeiras camadas permaneceram congeladas, enquanto as camadas mais profundas e o classificador customizado foram treinados.
-
----
-
-**Pronto!**  
-Salve esse conteúdo no arquivo `docs/04-modelagem-deep-learning.md`.
-
-Quer que eu transforme também as outras seções (como a 5, 6 ou 7) ou ajuste algo nesse texto (ex: adicionar mais detalhes, deixar mais curto, etc.)?

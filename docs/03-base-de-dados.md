@@ -31,7 +31,7 @@ As imagens foram pré-processadas da seguinte forma para adequação ao modelo:
 O modelo final utiliza a arquitetura **MobileNetV2 (1.00_224)** como backbone, com as camadas convolucionais iniciais parcialmente congeladas (`trainable=False`) e as camadas finais liberadas para *fine-tuning*.
 
 ## Balanceamento
-O dataset apresenta **forte desbalanceamento** de classes, com a classe “Normal” possuindo mais de 20 vezes mais amostras que a classe “Hipertensão”. Para mitigar esse problema, foi aplicado **data augmentation intensivo** nas classes minoritárias durante o processo de treinamento.
+O nosso conjunto de dados final apresenta um desbalanceamento natural, visto que o número de amostras de olhos 'Normais' é superior ao de olhos com 'Catarata'. Para mitigar o impacto desse desequilíbrio e evitar que o MobileNetV2 fique viciado na classe majoritária, aplicamos o Data Augmentation no lote de treino. Isso força a rede a extrair múltiplos padrões geométricos e de iluminação das imagens de Catarata, garantindo que ela aprenda a identificar a doença de forma robusta, mesmo tendo menos fotos originais dela.
 
 ## Separação treino/teste/validação
 Os dados foram divididos em conjuntos de treino e validação/teste, sendo **80% para treino** e **20% para validação/teste**.
