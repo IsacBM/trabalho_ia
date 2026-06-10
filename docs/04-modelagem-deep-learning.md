@@ -1,5 +1,7 @@
 # 4. Modelagem em Deep Learning
 
+![Registro e Captura](imagens/ciclo-deep-leaning.png)
+
 ## Arquitetura escolhida
 Foi escolhida a arquitetura **MobileNetV2** (versão 1.00_224) como *backbone* convolucional, combinada com um classificador customizado no topo. A MobileNetV2 é uma rede neural convolucional eficiente, projetada para aplicações com recursos limitados, utilizando blocos de **inverted residual** com **depthwise separable convolutions**.
 
