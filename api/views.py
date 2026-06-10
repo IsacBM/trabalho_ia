@@ -25,6 +25,7 @@ def analisar_olho(request):
         processed_img = np.expand_dims(processed_img, axis=0)
         probabilidades = modelo.predict(processed_img)
         probabilidade = float(probabilidades[0][0])
+
         if probabilidade > 0.5:
             diagnostico = "Normal"
             confianca = probabilidade
